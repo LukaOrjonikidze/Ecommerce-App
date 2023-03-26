@@ -1,6 +1,6 @@
 # Scandiweb Junior Task
 
-To run this app you need to have MySQL, Node.js and PHP installed.
+To run this app on a local machine you need to have MySQL, Node.js and PHP installed.
 
 Navigate to client directory run `npm install` and run `npm run dev` to run the react application.
 
