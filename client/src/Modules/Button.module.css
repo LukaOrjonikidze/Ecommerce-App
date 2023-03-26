@@ -1,0 +1,27 @@
+.btn {
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #555555;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+.success {
+    background-color: #17C964;
+}   
+.danger {
+    background-color: #F31260;
+}
+
+.btn:hover {
+    transform: scale(1.02);
+    transition: all 0.3s ease-in-out;
+}
+.btn:active {
+    transform: scale(0.98);
+    transition: all 0.3s ease-in-out;
+}

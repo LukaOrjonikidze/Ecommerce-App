@@ -1,0 +1,17 @@
+.product-item {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 1rem;
+    border: 2px solid #797979;
+    position: relative;
+}
+.product-item input {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    transform: (5%, 5%);
+}

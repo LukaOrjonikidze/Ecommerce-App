@@ -1,0 +1,32 @@
+main {
+    padding: 3%;
+}
+.heading {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    padding: 0.75rem;
+    border-bottom: 5px solid #797979;
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+}
+.heading strong {
+    font-size: 2rem;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+}
+.product-list{
+    transition: 0.5s;
+    margin-block: 5%;
+    display: grid;
+    box-sizing: border-box;
+    grid-template-columns: repeat(auto-fit, 250px);
+    grid-template-rows: repeat(4, 250px);
+    grid-gap: 2rem;
+}

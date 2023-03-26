@@ -1,0 +1,51 @@
+.add-product-div {
+    padding: 3%;
+}
+.heading {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    padding: 0.75rem;
+    border-bottom: 5px solid #797979;
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+}
+.heading strong {
+    font-size: 2rem;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.add-product-form {
+    padding-top: 3%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.furniture-div {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.toasts {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.toast {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    margin: .5rem;
+}
