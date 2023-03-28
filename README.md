@@ -9,7 +9,7 @@ Also You will need to run the MySQL Database.
 
 #
 
-Finally, Run this query in the MySQL to create products table
+Finally, Create a database named scandiweb and Run this query in the database to create products table
 
 ```
 CREATE TABLE products (
