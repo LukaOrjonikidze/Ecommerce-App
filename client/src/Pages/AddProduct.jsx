@@ -2,41 +2,31 @@ import classes from "../Modules/AddProduct.module.css";
 import Button from "../Components/UI/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { Input } from '@nextui-org/react';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
  
 const AddProduct = (props) => {
   const navigate = useNavigate();
   const [productType, setProductType] = useState();
   const [option, setOption] = useState("");
-  const [size, setSize] = useState("");
-  const [weight, setWeight] = useState("");
-  const [height, setHeight] = useState("");
-  const [width, setWidth] = useState("");
-  const [length, setLength] = useState("");
-  const [sku, setSku] = useState("");
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
   const [warning, setWarning] = useState("");
+  const sizeRef = useRef();
+  const weightRef = useRef();
+  const heightRef = useRef();
+  const widthRef = useRef();
+  const lengthRef = useRef();
+  const skuRef = useRef();
+  const nameRef = useRef();
+  const priceRef = useRef();
+  
 
-  useEffect(() => {
-    setWarning("");
-  }, [option,
-    size,
-    weight,
-    height,
-    width,
-    length,
-    sku,
-    name,
-    price])
 
   const products = {
-    DVD: <Input value={size} onChange={(e) => setSize(e.target.value)}  width={300}  id="size" labelPlaceholder="Size" name="DVD" type="number" />,
-    Book: <Input value={weight} onChange={(e) => setWeight(e.target.value)} width={300} id="weight" labelPlaceholder="Weight (KG)" name="Book" type="number" />,
+    DVD: <Input ref={sizeRef}   width={300}  id="size" labelPlaceholder="Size" name="DVD" type="number" />,
+    Book: <Input ref={weightRef}  width={300} id="weight" labelPlaceholder="Weight (KG)" name="Book" type="number" />,
     Furniture: <div className={classes['furniture-div']}>
-      <Input value={height} onChange={(e) => setHeight(e.target.value)}  width={300}  id="height" labelPlaceholder="Height" name="height" type="number" />
-      <Input value={width} onChange={(e) => setWidth(e.target.value)}  width={300}  id="width" labelPlaceholder="Width" name="width" type="number" />
-      <Input value={length} onChange={(e) => setLength(e.target.value)}  width={300}  id="length" labelPlaceholder="Length" name="length" type="number" />
+      <Input ref={heightRef}  width={300}  id="height" labelPlaceholder="Height" name="height" type="number" />
+      <Input ref={widthRef}   width={300}  id="width" labelPlaceholder="Width" name="width" type="number" />
+      <Input ref={lengthRef}   width={300}  id="length" labelPlaceholder="Length" name="length" type="number" />
     </div>
   };
   const productsDescription = {
@@ -51,6 +41,16 @@ const AddProduct = (props) => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
+    setWarning("");
+   let sku = skuRef.current?.value || "";
+   let name = nameRef.current?.value || "";
+   let price = priceRef.current?.value || "";
+   let size = sizeRef.current?.value || "";
+   let weight = weightRef.current?.value || "";
+   let height = heightRef.current?.value || "";
+   let width = widthRef.current?.value || "";
+   let length = lengthRef.current?.value || "";
+   
     if (sku === ""){
       setWarning("Please provide SKU!");
     } else if (name === ""){
@@ -111,16 +111,16 @@ const AddProduct = (props) => {
         <div className={classes['heading']}>
               <strong>Product Add</strong>
               <div className={classes['buttons']}>
-                <Button type="submit" onClick={() => {}} variant="success">Save</Button>
+                <Button type="submit" variant="success">Save</Button>
                 <Link to="/"><Button type="button" variant="danger">Cancel</Button></Link>
               </div>
           </div>
         
           <div className={classes['add-product-form']}>
-            <Input value={sku} onChange={(e) => setSku(e.target.value)}  width={300}  id="sku" labelPlaceholder="SKU" name="sku" type="text" />
-            <Input value={name} onChange={(e) => setName(e.target.value)}  width={300}  id="name" labelPlaceholder="NAME" name="name" type="text" />
-            <Input value={price} onChange={(e) => setPrice(e.target.value)}  width={300}  id="price" labelPlaceholder="PRICE" name="price" type="number" />
-            <select value={option} onChange={handleChange} id="productType" style={{width: "15%", fontSize: "1.5rem"}}>
+            <Input ref={skuRef}   width={300}  id="sku" labelPlaceholder="SKU" name="sku" type="text" />
+            <Input ref={nameRef}   width={300}  id="name" labelPlaceholder="NAME" name="name" type="text" />
+            <Input ref={priceRef}  width={300}  id="price" labelPlaceholder="PRICE" name="price" type="number" />
+            <select value={option} onChange={handleChange} id="productType" style={{width: "300px", fontSize: "1.5rem"}}>
               <option value="">Product Type</option>
               <option id="DVD" value="DVD">DVD</option>
               <option id="Book" value="Book">Book</option>
@@ -141,4 +141,4 @@ const AddProduct = (props) => {
   )
 }
 
-export default AddProduct
+export default AddProduct;
