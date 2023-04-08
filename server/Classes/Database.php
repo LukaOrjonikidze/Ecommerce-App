@@ -47,8 +47,10 @@ class Database implements IDatabase {
             return "Product with the Given SKU already exists!";
         }
         try {
-            $sql = "INSERT INTO products (SKU, Name, Price, Type, Value) VALUES ('$sku', '$name', '$price', '$type', '$value')";
-            $this->conn->query($sql);
+            $sql = "INSERT INTO products (SKU, Name, Price, Type, Value) VALUES (?, ?, ?, ?, ?)";
+            $stmt = mysqli_prepare($this->conn, $sql);
+            mysqli_stmt_bind_param($stmt, $sku, $name, $price, $type, $value);
+            mysqli_stmt_execute($stmt);
             return "Success";
         } catch (\Throwable $th) {
             return $th;
