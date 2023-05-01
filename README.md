@@ -1,4 +1,4 @@
-# Scandiweb Junior Task
+# Ecommerce App
 
 To run this app on a local machine you need to have MySQL, Node.js and PHP installed.
 
@@ -9,7 +9,7 @@ Also You will need to run the MySQL Database.
 
 #
 
-Finally, Create a database named scandiweb and Run this query in the database to create products table
+Finally, Create a database named ecommerce and Run this query in the database to create products table
 
 ```
 CREATE TABLE products (
