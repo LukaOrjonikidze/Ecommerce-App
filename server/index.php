@@ -14,7 +14,7 @@ header("HTTP/1.1 200 OK");
 $host = "localhost";
 $user = "root";
 $password = "";
-$db_name = "scandiweb";
+$db_name = "ecommerce";
 
 global $db, $controller, $body;
 
